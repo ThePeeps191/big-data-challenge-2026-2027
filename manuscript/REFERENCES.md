@@ -191,8 +191,6 @@ the Nov 21 annotated bibliography (Checkpoint 2) asks for this anyway.
 - 3,000-word hard limit. Abstract (250 words or fewer), references, tables, figures and
   captions are excluded; appendix text should be treated as counted.
 - Title of 12 words or fewer; 3-5 keywords.
-- AI may only copy-edit; all prose must be written by the students, and AI assistance
-  with code or analysis should be disclosed.
 
 **Sources:** Manuscript Guidelines, Word Count FAQ and Manuscript Rubric (Google
 Classroom). See `OUTLINE.md` for the full summary.
