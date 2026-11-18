@@ -1,6 +1,8 @@
 # Manuscript outline
 
-Working draft for the STEM Fellowship HSBDC 2026-27 manuscript (due **2027-01-10**). Every
+Working notes for the STEM Fellowship HSBDC 2026-27 manuscript (due **2027-01-10**).
+**These are planning notes, not manuscript text.** Under the HSBDC AI rule below, the
+paper must be written by the student authors. Every
 number below comes from a file in `outputs/tables/`; the file is named next to it so the
 text can be refreshed when the pipeline is re-run. `[cite: n]` points to
 [`REFERENCES.md`](REFERENCES.md).
@@ -9,12 +11,93 @@ Status markers: **(done)** result exists and is final for the manuscript; **(pre
 depends on the 2026 hotspot-based perimeters (re-run when NBAC 2026 is published, expected
 around May 2027); **(todo)** still to do.
 
-## Title options
+## Official requirements (Google Classroom, 2026-27 HSBDC documents, read 2026-11-17)
 
-1. Fire versus caribou: an open update of Canada's boreal caribou habitat scorecard through
-   the record 2021-2026 fire seasons
-2. Falling through the line: which boreal caribou ranges lost their undisturbed habitat
-   threshold after Canada's record fire years
+Sources: *Manuscript Guidelines*, *Manuscript Rubric*, *Word Count FAQ*, *Program
+Checkpoints*, *Checkpoint 2* and *LaTeX Overview* PDFs on the Classroom.
+
+**Format**
+- **Template:** the official Overleaf template is mandatory
+  (https://www.overleaf.com/read/rpqgjmbkphfs; two-column, numbered references). Make a
+  copy; change content, not layout.
+- **Word limit:** **3,000 words, a hard limit.** Marks are deducted if you go over, and
+  the paper becomes ineligible for SFJ. **Counted:** main body, headings, quotations,
+  equations (one word each). **Excluded:** abstract, title and author information,
+  keywords, acknowledgements, references, **tables and figures including their
+  captions**, and in-text citations or figure references. Appendices are not listed, and
+  the FAQ says "err on the side of caution", so **count appendix text**. Put detail in
+  tables with full captions instead.
+- **Title page:** title of 12 words or fewer, in Title Case; authors and affiliations;
+  corresponding author's email; word count.
+- **Keywords:** 3-5. **Abstract:** 250 words or fewer (hard limit; it is published on its
+  own in the SFJ proceedings). No references or figure citations in it; cover aim,
+  methods, results, conclusions and implications.
+
+**Sections and content**
+- **Introduction:** the research question tied to the theme; the variables; the
+  datasets and why they suit the question.
+- **Methods:**
+  - Paragraph form, no bullets; reproducible; give the reasons for each choice.
+  - For data: sources, variables, geographic and temporal coverage, cleaning and
+    processing.
+  - For ML/AI: why that model, features, training and testing procedure, parameters and
+    evaluation metrics.
+- **Results:** report all results, including those contrary to the hypothesis, and
+  outliers. No interpretation. Give the ML benchmarks.
+- **Discussion (double weight in the rubric):** paragraph form. Interpret against the
+  objectives; compare with the literature; state limitations and future directions.
+- **Conclusion:** one short paragraph. **Acknowledgements** are optional.
+  **Appendices** are optional and may hold code, model details and extra tables.
+- **References:** Vancouver style, [1].
+
+**Rubric** (0-4 per category; Discussion counts double)
+- Categories: Abstract, Introduction, Research Question, Methodology, Data Diversity,
+  Figures/Tables, Results, Discussion, Relevance, References (quality), References
+  (quantity), Language & Clarity, Formatting, Word Count.
+- Full marks on References (quantity) need **at least 20 references**, and on quality,
+  peer-reviewed sources "exclusively" (government reports are fine but lower).
+- Figures and tables must each be necessary, with no redundancy.
+
+**AI authorship rule (read this)**
+- "final submissions must be written entirely by the student author(s)".
+- AI may help with copy editing only, "not for generating or writing original content".
+- Students "must independently understand, verify, and take responsibility for any
+  information, code, analysis, or outputs produced with the assistance of AI tools".
+- "Submissions found to contain AI-generated content without proper disclosure may be
+  disqualified."
+- **For this project:**
+  - Write all prose yourselves; this outline is notes, not text to paste.
+  - Disclose that the analysis code was developed with AI assistance (for example in
+    Methods or Acknowledgements).
+  - Make sure every author can explain each method.
+
+**Deadlines**
+- Nov 21, optional: annotated bibliography. At least 10 peer-reviewed sources; Vancouver
+  citation, summary, relevance and limitations for each.
+- Dec 5, optional: project proposal.
+- **Jan 10: manuscript.** **Jan 17: poster and slide.** Feb 5: Canada West conference.
+
+**Prizes**
+- Top 2 posters and top 2 3-minute talks: money.
+- Top 2 manuscripts: SFJ publication fee waiver (the fee is otherwise $400).
+
+**How to fit 3,000 words**
+- Main text carries the argument. Detail goes in **tables** (excluded with their
+  captions): the per-range scorecard, detector comparison, 2026 calibration and data
+  sources.
+- Rough budget:
+  - Introduction ~450
+  - Methods ~1,000
+  - Results ~600
+  - Discussion ~800
+  - Conclusion ~100
+  - Headings ~50
+
+## Title options (12 words or fewer, Title Case)
+
+1. Wildfires Push Boreal Caribou Ranges Below Canada's Habitat Threshold (10 words)
+2. Updating Canada's Boreal Caribou Habitat Scorecard After Record Wildfire Years (10 words)
+3. Fire, Not Industry: Boreal Caribou Habitat Loss After 2020 (9 words)
 
 ## Argument in five sentences
 
@@ -39,7 +122,7 @@ around May 2027); **(todo)** still to do.
 
 ## Sections
 
-### Abstract (≤ 300 words; also submitted on its own, published in the proceedings)
+### Abstract (≤ 250 words, hard limit; published on its own in the SFJ proceedings)
 
 Problem, gap, method in one sentence each; three headline numbers (ranges meeting 2020 /
 2025 / 2026; area burned; crossings); the triage; detector accuracy; one sentence on use.
