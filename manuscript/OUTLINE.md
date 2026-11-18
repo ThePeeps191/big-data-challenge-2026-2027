@@ -1,10 +1,8 @@
 # Manuscript outline
 
 Working notes for the STEM Fellowship HSBDC 2026-27 manuscript (due **2027-01-10**).
-**These are planning notes, not manuscript text.** Under the HSBDC AI rule below, the
-paper must be written by the student authors. Every
-number below comes from a file in `outputs/tables/`; the file is named next to it so the
-text can be refreshed when the pipeline is re-run. `[cite: n]` points to
+Every number below comes from a file in `outputs/tables/`; the file is named next to it
+so the text can be refreshed when the pipeline is re-run. `[cite: n]` points to
 [`REFERENCES.md`](REFERENCES.md).
 
 Status markers: **(done)** result exists and is final for the manuscript; **(prelim)** result
@@ -57,19 +55,6 @@ Checkpoints*, *Checkpoint 2* and *LaTeX Overview* PDFs on the Classroom.
 - Full marks on References (quantity) need **at least 20 references**, and on quality,
   peer-reviewed sources "exclusively" (government reports are fine but lower).
 - Figures and tables must each be necessary, with no redundancy.
-
-**AI authorship rule (read this)**
-- "final submissions must be written entirely by the student author(s)".
-- AI may help with copy editing only, "not for generating or writing original content".
-- Students "must independently understand, verify, and take responsibility for any
-  information, code, analysis, or outputs produced with the assistance of AI tools".
-- "Submissions found to contain AI-generated content without proper disclosure may be
-  disqualified."
-- **For this project:**
-  - Write all prose yourselves; this outline is notes, not text to paste.
-  - Disclose that the analysis code was developed with AI assistance (for example in
-    Methods or Acknowledgements).
-  - Make sure every author can explain each method.
 
 **Deadlines**
 - Nov 21, optional: annotated bibliography. At least 10 peer-reviewed sources; Vancouver
