@@ -58,4 +58,11 @@ def world():
                           geometry=[strip(9, 10), strip(5, 7), strip(7, 8)], crs=crs), "fires_cnfdb")
     save(gpd.GeoDataFrame({"YEAR": [1983, 2000, 2023]},
                           geometry=[strip(5, 7), strip(7, 8), strip(4, 6)], crs=crs), "fires_nbac")
+    # preliminary layers (caribou.prelim):
+    #   2026 hotspot estimate on 3-4 (new ground) and 7-8 (already disturbed by the 2000 fire)
+    #   CNFDB 2021-2024 on 4-5 (same fire as NBAC 2023) and 8-9 (a 2022 fire NBAC missed)
+    save(gpd.GeoDataFrame({"YEAR": [2026, 2026]}, geometry=[strip(3, 4), strip(7, 8)], crs=crs),
+         "fires_prelim_2026")
+    save(gpd.GeoDataFrame({"YEAR": [2023, 2022]}, geometry=[strip(4, 5), strip(8, 9)], crs=crs),
+         "fires_cnfdb_post")
     return C

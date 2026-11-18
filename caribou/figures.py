@@ -146,7 +146,8 @@ def scorecard_chart(sc: pd.DataFrame):
 
 
 # ---------------------------------------------------------------- 3. recovery clock
-def recovery_chart(rec: pd.DataFrame, sc: pd.DataFrame):
+def recovery_chart(rec: pd.DataFrame, sc: pd.DataFrame, name: str = "fig3_recovery_clock",
+                   start: int = C.UPDATE_YEAR):
     h = "official_adj"
     d = rec[rec[f"recovery_class_{h}"] != "meets now"].copy()
     d = d.merge(sc[["CODE", "official_2020", "crossing"]], on="CODE")
@@ -155,22 +156,22 @@ def recovery_chart(rec: pd.DataFrame, sc: pd.DataFrame):
     d = d.sort_values("sortkey", ascending=False)
     fig, ax = plt.subplots(figsize=(7.4, 0.24 * len(d) + 1.6))
     y = np.arange(len(d))
-    end = C.UPDATE_YEAR + C.FIRE_WINDOW_YEARS + 2
+    end = start + C.FIRE_WINDOW_YEARS + 2
     for yi, r in zip(y, d.itertuples()):
         cls = getattr(r, f"recovery_class_{h}")
         if cls == "recovers with time":
             yr = getattr(r, f"recovery_year_{h}")
-            ax.plot([C.UPDATE_YEAR, yr], [yi, yi], color=FIRE, lw=5, solid_capstyle="butt")
+            ax.plot([start, yr], [yi, yi], color=FIRE, lw=5, solid_capstyle="butt")
             ax.text(yr + 0.6, yi, f"{int(yr)}", va="center", fontsize=7.5, color=INK2)
         else:
             gap = 100 * getattr(r, f"restore_share_{h}")
-            ax.plot([C.UPDATE_YEAR, end], [yi, yi], color=INDUSTRY, lw=5, alpha=0.25,
+            ax.plot([start, end], [yi, yi], color=INDUSTRY, lw=5, alpha=0.25,
                     solid_capstyle="butt")
             ax.text(end + 0.6, yi, f"never: restore {gap:.0f}% of range", va="center",
                     fontsize=7.5, color=INDUSTRY)
     ax.set_yticks(y, [f"{r.name}" for r in d.itertuples()], fontsize=7.5, color=INK2)
     ax.tick_params(axis="y", length=0)
-    ax.set_xlim(C.UPDATE_YEAR, end + 22)
+    ax.set_xlim(start, end + 22)
     ax.xaxis.grid(True, color=GRID, lw=0.6)
     ax.set_axisbelow(True)
     ax.set_xlabel("Year the range would be back above its threshold, with no new fire or industry")
@@ -180,7 +181,7 @@ def recovery_chart(rec: pd.DataFrame, sc: pd.DataFrame):
                        Patch(color=INDUSTRY, alpha=0.35,
                              label="Industry-driven: below the line even after every fire ages out")],
               loc="upper right", fontsize=7.5, frameon=True, facecolor=SURFACE, edgecolor=GRID)
-    _save(fig, "fig3_recovery_clock")
+    _save(fig, name)
 
 
 # ---------------------------------------------------------------- 4. fire vs industry

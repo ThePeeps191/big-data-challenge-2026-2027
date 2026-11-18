@@ -58,7 +58,8 @@ def evaluate(df: pd.DataFrame, features: list[str], model: str = "rf", n_splits:
     def at(t):
         det = d["p"] >= t
         pos = d["label"] == 1
-        polys = d[pos & (d["poly_id"] >= 0)].groupby("poly_id")["p"].max()
+        # poly_id is only unique within a range (labels.py), so group by both
+        polys = d[pos & (d["poly_id"] >= 0)].groupby(["CODE", "poly_id"])["p"].max()
         return {"threshold": t,
                 "recall": float((det & pos).sum() / max(pos.sum(), 1)),
                 "false_alarm_intact": float((det & (d["label"] == 0)).sum() / max((d["label"] == 0).sum(), 1)),

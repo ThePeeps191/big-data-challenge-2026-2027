@@ -1,0 +1,28 @@
+{
+  "feature_set": "embedding_change_rf",
+  "windows": 22,
+  "polygon_recall_2020": 0.7632311977715878,
+  "federal_clearing_15_20_ha": 8682.35,
+  "detected_new_20_25_ha": 2743.21,
+  "noise_2020_ha": 387.82,
+  "federal_buffered_added_15_20_ha": 13471.58,
+  "detected_buffered_added_20_25_ha": 5644.579999999999,
+  "noise_buffered_2020_ha": 1278.52,
+  "estimated_clearing_20_25_ha": 3086.0766788321166,
+  "pace_ratio_clearing": 0.35544255631621813,
+  "estimated_buffered_added_20_25_ha": 5720.494671532846,
+  "pace_ratio_buffered": 0.4246342798344995,
+  "windows_with_more_after_2020": 5,
+  "harvest_ha_per_year_2015_2022": {
+    "2015": 693.22,
+    "2016": 1251.53,
+    "2017": 1108.43,
+    "2018": 1069.29,
+    "2019": 1849.52,
+    "2020": 1596.51,
+    "2021": 886.19,
+    "2022": 432.17
+  },
+  "harvest_pace_ratio_2021_22_vs_2015_20": 0.5225711831934994,
+  "federal_2020_polygons_on_pre2015_harvest_share": 0.020030291338174574
+}
