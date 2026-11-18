@@ -8,3 +8,5 @@ __pycache__/
 .ipynb_checkpoints/
 # outputs that are large or regenerated
 outputs/cache/
+# local virtual environment
+.venv/

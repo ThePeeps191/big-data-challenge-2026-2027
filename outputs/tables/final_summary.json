@@ -1,0 +1,92 @@
+{
+  "meets_2020_published": 21,
+  "meets_2025_whole_band": 14,
+  "meets_2025_band_reaches": 16,
+  "meets_2026_whole_band": 13,
+  "meets_2026_band_reaches": 16,
+  "crossed_2025": [
+    "Northwest Territories",
+    "Kississing",
+    "Manitoba North Conservation Unit",
+    "Atikaki-Berens",
+    "Brightsand"
+  ],
+  "crossed_by_2026": [
+    "Northwest Territories",
+    "Kississing",
+    "Manitoba North Conservation Unit",
+    "Atikaki-Berens",
+    "Brightsand"
+  ],
+  "uncertain_2026": [
+    "Saskatchewan Boreal Shield",
+    "Wapisu",
+    "Nipigon"
+  ],
+  "triage_counts": {
+    "needs restoration": 19,
+    "needs time": 16,
+    "secure": 10,
+    "at risk": 6
+  },
+  "range_area_burned_2026_est_km2": 32801.65929444493,
+  "triage_needs_restoration": [
+    "Maxhamish",
+    "Calendar",
+    "Snake-Sahtahneh",
+    "Parker",
+    "Prophet",
+    "Chinchaga",
+    "Bistcho",
+    "Little Smoky",
+    "Red Earth",
+    "West Side Athabasca River",
+    "East Side Athabasca River",
+    "Cold Lake",
+    "Nipisi",
+    "Slave Lake",
+    "Kesagami",
+    "Val d'Or",
+    "Charlevoix",
+    "Pipmuacan",
+    "Manicouagan"
+  ],
+  "triage_needs_time": [
+    "Northwest Territories",
+    "Yates",
+    "Caribou Mountains",
+    "Richardson",
+    "Saskatchewan Boreal Plain",
+    "Kississing",
+    "Naosap",
+    "William Lake",
+    "Manitoba North Conservation Unit",
+    "Atikaki-Berens",
+    "Owl-Flintstone",
+    "Sydney",
+    "Berens",
+    "Churchill",
+    "Brightsand",
+    "Manouane"
+  ],
+  "triage_at_risk": [
+    "Saskatchewan Boreal Shield",
+    "North Interlake",
+    "Wapisu",
+    "Nipigon",
+    "Pagwachuan",
+    "Quebec"
+  ],
+  "triage_secure": [
+    "The Bog",
+    "Reed",
+    "Wabowden",
+    "Manitoba South Conservation Unit",
+    "Manitoba East Conservation Unit",
+    "Coastal",
+    "Far North",
+    "Lac Joseph",
+    "Red Wine Mountain",
+    "Mealy Mountain"
+  ]
+}

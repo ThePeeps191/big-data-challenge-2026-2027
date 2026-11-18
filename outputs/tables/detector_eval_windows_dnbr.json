@@ -1,0 +1,11 @@
+{
+  "auc": 0.5238185035170384,
+  "average_precision": 0.4355977546181336,
+  "threshold_at_1pct_fa": 0.7249318361282349,
+  "recall_at_1pct_fa": 0.007078313253012048,
+  "false_alarm_intact": 0.000353045013239188,
+  "false_alarm_burned": 0.04450261780104712,
+  "n_samples": 231326,
+  "n_windows": 29,
+  "polygon_detection_ge2ha": 0.0
+}

@@ -168,16 +168,19 @@ A simulation, not a trained model. For each range, resample its annual burned fr
 
 ## Week-one checklist
 
-Status 2026-11-17: the pipeline in `caribou/` does the scorecard, split, recovery clock and forecast at full resolution; results are in README.md.
+Status 2026-11-17: the pipeline in `caribou/` does the scorecard, split, recovery clock and forecast at full resolution; results are in README.md. Later the same day it gained the 2026 preliminary column, the fire-source check, the open-data detector study and the triage. Remaining before writing: the two emails below. The manuscript can be written now from `manuscript/OUTLINE.md`.
 
 - [x] Confirm SK1's 40% threshold and the 21-of-51 figure in the federal sources. Both are in the 2024 progress report (`reference/README.md`). Note: the federal range layer swaps the SK1/SK2 codes; fixed in `config.py`.
 - [x] Swap the aged-out 1981-1985 fires to the CNFDB polygons used in the federal layer. The service description confirms CNFDB 1981-2020; our rebuild matches layer 3 on >99.99% of pixels.
 - [x] Reconcile per-range 2020 values with the official table. All 51 within the report's whole-% rounding. Brightsand is 35.2% disturbed in the layers, published as 35% (counted as meeting).
 - [x] Check whether NBAC 2025 perimeters are final or preliminary. Version 20260513, released after the season; 99.7% of 2025 area is from processed imagery (similar to 2021-2023). No explicit "final" flag in the metadata.
 - [ ] Email the federal department: which 40-year window, and is a 2025 update planned? (Window answered by the data: 1981-2020 for the 2020 edition. The 2015 edition rebuilds to within 0.3 points with 1976-2015.)
-- [ ] Pilot the embedding detector on the same 824 km2 Quebec window and compare with AUC 0.86. Code ready (`python -m caribou.detector ... --window -76.2 49.62 -75.8 49.88`); needs Earth Engine authentication.
+- [x] Pilot the embedding detector on the same 824 km2 Quebec window and compare with AUC 0.86. Done without Earth Engine, on the open COG copy of the embeddings (`caribou/detector/windows.py`; results in README): 17 seeded random windows, 7 burn windows and the 5 Quebec pilot blocks. On the pilot blocks (Quebec range held out of training) the pixel AUC is 0.97-0.99, vs 0.56 for Sentinel-2 dNBR on the same pixels.
 - [x] Compute the recovery year for the three clearly crossing ranges. Done for all 51 (`outputs/tables/recovery.csv`).
-- [ ] Compare the 153 pilot clearings with the federal forest-harvest layer.
+- [x] Compare clearings with the federal forest-harvest layer. NRCan CA Forest Harvest 1985-2022 is used as independent truth in every detector window (recall of 2021-2022 harvests, precision floor).
+- [x] Add the 2026 fire season (preliminary, hotspot perimeters calibrated against NBAC) and a CNFDB 2021-2024 fire-source rule (`caribou/prelim.py`).
+- [x] Synthesis table with a triage per range (`caribou/synthesis.py`, `outputs/tables/final_table.csv`).
+- [x] Verified reference list and manuscript outline (`manuscript/`).
 - [x] Re-run the scorecard with unsimplified geometry. 100 m and 250 m grids, no simplification; resolution effect ≤0.12 points.
 - [ ] Ask the organizers how AI is weighted in judging.
 
@@ -188,8 +191,12 @@ Status 2026-11-17: the pipeline in `caribou/` does the scorecard, split, recover
 | Fire is natural. Should it count at all? | The federal definition counts fires of the last 40 years. We report results under the official rule and under a human-only rule, and show the gap. |
 | Isn't this just an overlay? | The scorecard is. The detector for post-2020 industry, the fire vs industry split and the recovery clock are new. |
 | How sure are you about a range at 64%? | We give a band per range and headline only crossings outside it. |
-| Did you match the official numbers? | Yes at the count level: 21 of 51 in 2020. Per-range reconciliation is a week-one task. |
+| Did you match the official numbers? | Yes. All 51 ranges are within the report's whole-percent rounding, and our rebuild of the footprint from its parts matches the official layer on 99.84-100% of pixels. |
 | Hasn't someone already counted the burned habitat? | Regionally, yes, in Alberta and BC. Nobody has published a national update with the federal method. |
+| What about the 2026 fires? | NBAC 2026 is not out until about May 2027. We add a preliminary 2026 column from CWFIS hotspot-based perimeters, calibrated against NBAC 2021-2025, and keep 2025 (final data) as the headline. |
+| You switched fire datasets in 2020. Doesn't that bias the result? | Yes, in a known direction: NBAC maps less area than the agency perimeters (CNFDB) the federal map used (4-11% less inside the ranges in 2021-2024). A rule with CNFDB 2021-2024 is in the band. It changes no status in the ranges we re-ran, and it can only lower the others, so the crossings hold under either source. |
+| Where is the AI, and does it beat a simple index? | A detector on Google's satellite embeddings, trained on federal 2020 clearings and tested on held-out ranges. It finds 76-88% of new federal clearings and 30 of 39 independently mapped 2021-2022 harvest patches. A burn-ratio (dNBR) index works on fresh harvests but not on what the federal map adds (well sites, mines, regrowing 2015-16 cuts). It also confuses clearings with burns: AUC 0.52 vs 0.90 on the same labels. |
+| Is the loss fire or industry? | Fire. Inside the ranges, fire burned about 40,000 km² a year in 2021-2025, while harvest cleared about 1,000 km² a year at roughly its 2015-2020 pace (national NRCan harvest map). Even with the 500 m buffer, fire is 85% of post-2020 loss. |
 | What if the government publishes first? | The 2020 layer came out four years after its data year, so a 2025 layer before February is unlikely. If it does, ours is an independent check, and the detector, the split and the recovery clock are still ours. |
 
 ## Risks
@@ -199,19 +206,21 @@ Status 2026-11-17: the pipeline in `caribou/` does the scorecard, split, recover
 - The AI component reads as secondary to judges. Mitigation: the detector and forecast are in the main deliverables.
 - The federal department publishes its own update before February (low, given its past pace).
 
-## Not yet verified
+## Verified sources (2026-11-17)
 
-These come from our earlier shortlist or from a second review that read most sources through search excerpts. Open each source before quoting it.
+All sources were opened, or their Crossref abstracts checked; see [`manuscript/REFERENCES.md`](manuscript/REFERENCES.md). Corrections to earlier notes:
 
-- SK1's 40% threshold, and the 21-of-51 official figure.
-- That the federal layer used CNFDB polygons for 1981-2020, and its July 2024 publication date.
-- Whether NBAC 2025 is final.
-- The regional counts (ABMI, joint letter, Wildlife Science Centre tracker).
-- The Konkolics caribou-and-burns study.
-- Satellite Embedding V1 coverage (annual from 2017; 2025 in the cloud copy).
-- The Nopiming fire and Owl-Flintstone news coverage.
-- The 153 pilot clearings (no comparison with a harvest map yet).
-- The 60% self-sustaining probability attached to the 65% threshold.
+- The "65% gives a 60% chance of a self-sustaining population" pairing is stated in the 2012 and 2020 Recovery Strategy, not in the 2011 scientific assessment. The assessment gives a 60-90% probability for 10-35% disturbance.
+- Cite SK1's 40% threshold to the **2020** amended Recovery Strategy (the 2019 document was the proposed version). Rationale: SK1 is self-sustaining below 65%, with high fire and very low human disturbance.
+- The 21-of-51 figure is in the 2024 progress report. ECCC's news release (2024-05-10) states it is "Based on 2020 data".
+- The federal 2020 layer description confirms: 500 m buffer, CNFDB 1981-2020 fires, CFS harvest polygons added; published 2024-07-15.
+- Konkolics et al. (2021, J. Wildl. Manage.) studied six Alberta populations, not Richardson alone.
+- Johnson et al. (2020, J. Appl. Ecol.): the negative effect of fire on recruitment was "three to four times smaller than human disturbances". Use it for the "should fire count?" question.
+- Skakun et al. (2022): NBAC gives higher "undisturbed" values than agency (CNFDB) perimeters (NT1 about 71% vs 65%). This is why the CNFDB 2021-2024 rule was added to the band.
+- Satellite Embedding V1: the paper says 2017-2024, but 2025 tiles exist in the public copies (Source Cooperative), which we use.
+- CA Forest Harvest (NRCan, Hermosilla et al. 2016) runs 1985-**2022**: independent truth for 2021-2022 clearings only.
+- The Nopiming fire and Owl-Flintstone coverage is confirmed (CBC, 2025).
+- Still unopened: the ABMI 2023 Alberta report and the joint conservation-group letter.
 
 ## How this idea was chosen
 

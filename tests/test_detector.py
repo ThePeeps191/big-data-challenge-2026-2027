@@ -36,3 +36,22 @@ def test_evaluate_held_out_ranges():
     assert 0 < a["recall"] <= 1 and 0 < a["polygon_detection"] <= 1
     assert a["polygon_detection"] >= a["recall"] - 1e-9  # a polygon counts if any point hits
     assert set(res["per_range_auc"]) == {"A1", "A2", "B1", "B2", "C1", "C2"}
+
+
+def test_polygon_ids_are_per_range():
+    """The same poly_id in two ranges is two polygons, not one."""
+    from caribou.detector.train import evaluate
+    rng = np.random.default_rng(0)
+    rows = []
+    for code, obvious in (("A1", range(0, 10)), ("A2", range(10, 20)),
+                          ("B1", range(0, 10)), ("B2", range(10, 20))):
+        for label in (0, 1, 2):
+            n = 60                                  # 20 polygons x 3 points for label 1
+            pid = np.where(label == 1, np.arange(n) // 3, -1)
+            f1 = rng.normal(0, 0.1, n) + np.where((label == 1) & np.isin(pid, list(obvious)), 10.0, 0)
+            rows.append(pd.DataFrame({"CODE": code, "label": label, "poly_id": pid, "f1": f1}))
+    df = pd.concat(rows, ignore_index=True)
+    res, _ = evaluate(df, ["f1"], n_splits=2)
+    # half the polygons of every range are obvious; pooling ids across ranges
+    # (ids 0-9 obvious in A1, 10-19 in A2) would report every polygon as detected
+    assert res["at_fpr_0.01"]["polygon_detection"] == pytest.approx(0.5, abs=0.05)
