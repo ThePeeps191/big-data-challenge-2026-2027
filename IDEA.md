@@ -168,15 +168,17 @@ A simulation, not a trained model. For each range, resample its annual burned fr
 
 ## Week-one checklist
 
-- [ ] Confirm SK1's 40% threshold and the 21-of-51 figure in the federal sources.
-- [ ] Swap the aged-out 1981-1985 fires to the CNFDB polygons used in the federal layer.
-- [ ] Reconcile per-range 2020 values with the official table.
-- [ ] Check whether NBAC 2025 perimeters are final or preliminary.
-- [ ] Email the federal department: which 40-year window, and is a 2025 update planned?
-- [ ] Pilot the embedding detector on the same 824 km2 Quebec window and compare with AUC 0.86.
-- [ ] Compute the recovery year for the three clearly crossing ranges.
+Status 2026-11-17: the pipeline in `caribou/` does the scorecard, split, recovery clock and forecast at full resolution; results are in README.md.
+
+- [x] Confirm SK1's 40% threshold and the 21-of-51 figure in the federal sources. Both are in the 2024 progress report (`reference/README.md`). Note: the federal range layer swaps the SK1/SK2 codes; fixed in `config.py`.
+- [x] Swap the aged-out 1981-1985 fires to the CNFDB polygons used in the federal layer. The service description confirms CNFDB 1981-2020; our rebuild matches layer 3 on >99.99% of pixels.
+- [x] Reconcile per-range 2020 values with the official table. All 51 within the report's whole-% rounding. Brightsand is 35.2% disturbed in the layers, published as 35% (counted as meeting).
+- [x] Check whether NBAC 2025 perimeters are final or preliminary. Version 20260513, released after the season; 99.7% of 2025 area is from processed imagery (similar to 2021-2023). No explicit "final" flag in the metadata.
+- [ ] Email the federal department: which 40-year window, and is a 2025 update planned? (Window answered by the data: 1981-2020 for the 2020 edition. The 2015 edition rebuilds to within 0.3 points with 1976-2015.)
+- [ ] Pilot the embedding detector on the same 824 km2 Quebec window and compare with AUC 0.86. Code ready (`python -m caribou.detector ... --window -76.2 49.62 -75.8 49.88`); needs Earth Engine authentication.
+- [x] Compute the recovery year for the three clearly crossing ranges. Done for all 51 (`outputs/tables/recovery.csv`).
 - [ ] Compare the 153 pilot clearings with the federal forest-harvest layer.
-- [ ] Re-run the scorecard with unsimplified geometry.
+- [x] Re-run the scorecard with unsimplified geometry. 100 m and 250 m grids, no simplification; resolution effect ≤0.12 points.
 - [ ] Ask the organizers how AI is weighted in judging.
 
 ## Questions a judge will ask

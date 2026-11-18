@@ -1,0 +1,45 @@
+{
+  "ranges": 51,
+  "meet_2020_report": 21,
+  "meet_2020_ours_raster": 20,
+  "borderline_2020": [
+    "Brightsand"
+  ],
+  "max_abs_diff_vs_report_pts": 0.5011972487129128,
+  "meet_2020_vector": 20,
+  "meet_2015_official": 20,
+  "meet_2025_central": 16,
+  "meet_2025_clearly": 14,
+  "meet_2025_possibly": 16,
+  "below_2025_clearly": 35,
+  "clear_crossings": [
+    "Northwest Territories",
+    "Kississing",
+    "Manitoba North Conservation Unit",
+    "Atikaki-Berens",
+    "Brightsand"
+  ],
+  "possible_crossings": [],
+  "at_risk": [
+    "Saskatchewan Boreal Shield",
+    "Wapisu"
+  ],
+  "recovered": [],
+  "range_area_km2": 2445729.6900000004,
+  "burned_2021_2025_km2": 202150.03999999998,
+  "burned_2021_2025_share": 0.08265428547829419,
+  "new_fire_km2": 120273.41999999998,
+  "aged_out_km2": 45473.39000000001,
+  "ranges_burned_gt10pct": 20,
+  "ranges_lost_gt10pts": 8,
+  "meet_human_only_2020": 32,
+  "meet_human_only_2025": 32,
+  "median_abs_rebuild_error_2020_pts": 6.850957421367099e-05,
+  "max_abs_rebuild_error_2020_pts": 0.1627342690036837,
+  "median_abs_rebuild_error_2015_pts": 0.2775044421948314,
+  "burned_last_2021_share": 0.008550298949840199,
+  "burned_last_2022_share": 0.002587559052774961,
+  "burned_last_2023_share": 0.03401264266452928,
+  "burned_last_2024_share": 0.014433553366234845,
+  "burned_last_2025_share": 0.023070231444914907
+}
