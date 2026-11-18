@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "caribou-scorecard"
+version = "0.1.0"
+description = "Fire vs Caribou: updating Canada's boreal caribou habitat scorecard through the 2021-2025 fire years"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "geopandas>=1.0",
+  "shapely>=2.0",
+  "pyogrio>=0.7",
+  "pyproj>=3.6",
+  "rasterio>=1.3",
+  "scikit-learn>=1.4",
+  "matplotlib>=3.8",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+detector = ["earthengine-api>=1.0"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["caribou*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
