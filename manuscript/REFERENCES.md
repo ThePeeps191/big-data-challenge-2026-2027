@@ -154,11 +154,45 @@ against here without opening it first.**
   2026-08-19: AB and BC only; wildfire to 2024; other disturbance to 2021/2022; no 40-year
   rule; "not directly comparable to the 65% threshold" (its FAQ).
 
-## Format
+## Candidates to read next (NOT yet verified: open each before citing)
 
-The HSBDC Overleaf template (2021-22) asks for: abstract ≤ 250 words, 3-5 keywords,
-Introduction, Materials & Methods, Results, Discussion, Conclusions, Acknowledgements,
-References. Published HSBDC papers in the *STEM Fellowship Journal* run about 8-9 journal
-pages with about 20-25 references (e.g. Zhang et al. 2025, *SFJ* 11: 71-79,
-https://doi.org/10.17975/sfj-2025-014). The 2026-27 pages state no length limit: ask
-bigdata@stemfellowship.org.
+The rubric gives full marks for **at least 20 references, predominantly peer-reviewed**.
+The list above has about 10 peer-reviewed papers; the rest are government documents and
+data. These well-known papers fit our argument. Find, read and verify each one yourselves:
+the Nov 21 annotated bibliography (Checkpoint 2) asks for this anyway.
+
+- Sorensen T, McLoughlin PD, Hervieux D, et al. Determining sustainable levels of
+  cumulative effects for boreal caribou. J Wildl Manage. 2008. (Disturbance-recruitment
+  in Alberta, the forerunner of the 65% rule.)
+- Festa-Bianchet M, Ray JC, Boutin S, Côté SD, Gunn A. Conservation of caribou in Canada:
+  an uncertain future. Can J Zool. 2011. (Context and decline.)
+- Dyer SJ, O'Neill JP, Wasel SM, Boutin S. Avoidance of industrial development by
+  woodland caribou. J Wildl Manage. 2001. (Basis for the 500 m buffer idea.)
+- DeMars CA, Boutin S. Nowhere to hide: effects of linear features on predator-prey
+  dynamics in a large mammal system. J Anim Ecol. 2018. (Why linear features matter,
+  the detector's blind spot.)
+- Hebblewhite M. Billion dollar boreal woodland caribou and the biodiversity impacts of
+  the global oil and gas industry. Biol Conserv. 2017. (Restoration costs, the triage.)
+- Hanes CC, Wang X, Jain P, et al. Fire-regime changes in Canada over the last half
+  century. Can J For Res. 2019. (Fire trends; the forecast's stationarity assumption.)
+- White JC, Wulder MA, Hermosilla T, et al. A nationwide annual characterization of 25
+  years of forest disturbance and recovery for Canada using Landsat time series. Remote
+  Sens Environ. 2017. (Satellite disturbance mapping in Canada.)
+- Olofsson P, Foody GM, Herold M, et al. Good practices for estimating area and assessing
+  accuracy of land change. Remote Sens Environ. 2014. (How to report detector accuracy.)
+- Hansen MC, Potapov PV, Moore R, et al. High-resolution global maps of 21st-century
+  forest cover change. Science. 2013. (The Classroom's own example entry.)
+
+## Format (official, 2026-27 Classroom documents)
+
+**Rules**
+- Vancouver style: numbers in square brackets, [1], in citation order. The official
+  Overleaf template's BibTeX setup handles this; keep it.
+- 3,000-word hard limit. Abstract (250 words or fewer), references, tables, figures and
+  captions are excluded; appendix text should be treated as counted.
+- Title of 12 words or fewer; 3-5 keywords.
+- AI may only copy-edit; all prose must be written by the students, and AI assistance
+  with code or analysis should be disclosed.
+
+**Sources:** Manuscript Guidelines, Word Count FAQ and Manuscript Rubric (Google
+Classroom). See `OUTLINE.md` for the full summary.
